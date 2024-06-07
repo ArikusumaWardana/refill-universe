@@ -38,8 +38,15 @@ import RefillLogo from '@/assets/refill-logo/refill-logo.png'
 }
 
 .content h1 {
+    -webkit-text-stroke: 0.5px blue;
+    text-shadow: 3.5px 3.5px 0.5px #019733;
+}
+
+@media (min-width: 768px) {
+    .content h1 {
     -webkit-text-stroke: 1.5px blue;
     text-shadow: 3.5px 3.5px 0.5px #019733;
+}
 }
 
 .content h2 {
