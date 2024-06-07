@@ -1,4 +1,5 @@
 <script setup>
+// Import Refill Logo 
 import RefillLogo from '@/assets/refill-logo/refill-logo.png'
 </script>
 

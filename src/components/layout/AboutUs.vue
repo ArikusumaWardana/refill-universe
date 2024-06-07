@@ -1,8 +1,10 @@
 <script setup>
+// Import About Us Image
 import AboutUsImage from '@/assets/about-us/logo-about-us.png'
 </script>
 
 <template>
+    <!-- About Us Section -->
     <section id="about-us" class="about-us py-12 px-6 md:px-12 lg:px-24 bg-white h-screen">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
             <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-10 w-full md:w-auto flex justify-center md:justify-start">
