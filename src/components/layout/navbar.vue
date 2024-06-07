@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
           v-for="(data, index) in navMenu"
           :key="index"
           :href="data.link"
-          class="block py-2 px-4 text-sm text-white hover:bg-gray-200"
+          class="block py-2 px-4 text-sm text-white hover:bg-gray-200 focus:text-gray-800"
           @click.prevent="scrollToSection(data.link)"
         >
           {{ data.name }}
