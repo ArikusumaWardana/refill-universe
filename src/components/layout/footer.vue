@@ -10,13 +10,13 @@ import logo from '@/assets/refill-logo/refill-logo.png'
       <div class="flex flex-col items-center md:items-start">
         <img :src="logo" alt="Logo" class="h-10 w-10 mb-2">
         <h2 class="text-xl font-semibold">Refill.Universe</h2>
-        <p class="text-gray-400 text-sm">Your go-to platform for amazing services.</p>
+        <p class="text-gray-400 text-sm">Eat More For Better Tomorrow</p>
       </div>
 
       <div class="flex flex-col items-center md:items-start">
         <h3 class="text-lg font-semibold">Follow Us</h3>
         <div class="mt-2 flex space-x-4">
-          <a href="https://github.com/ArikusumaWardana" target="_blank" class="hover:text-gray-400 text-lg"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/ArikusumaWardana/refill-universe" target="_blank" class="hover:text-gray-400 text-lg"><i class="fab fa-github"></i></a>
           <a href="https://www.instagram.com/refill.universe/" target="_blank" class="hover:text-gray-400 text-lg"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
