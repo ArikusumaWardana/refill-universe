@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import RefillLogo from '@/assets/refill-logo/refill-logo.png'
 
+// Define navigation menu items with names and corresponding links
 const navMenu = ref([
   { name: 'Home', link: '#home' },
   { name: 'About Us', link: '#about-us' },
@@ -9,23 +10,33 @@ const navMenu = ref([
   { name: 'Gallery', link: '#gallery' }
 ])
 
+// Reactive variable to track whether the menu is open (for mobile)
 const isMenuOpen = ref(false)
+
+// Reactive variable to track if the user has scrolled down
 const isScrolled = ref(false)
+
+// Reactive variable to store the currently active section
 const activeSection = ref('')
 
+// Reactive variable to store references to all sections on the page
 const sections = ref([])
 
+// Function to toggle the mobile menu open/closed
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
+// Function to handle scroll events and update active section
 const handleScroll = () => {
+  // Check if user has scrolled past a certain threshold
   if (window.scrollY > 50) {
     isScrolled.value = true
   } else {
     isScrolled.value = false
   }
 
+  // Determine the currently active section based on scroll position
   let currentSection = ''
   sections.value.forEach(section => {
     const rect = section.getBoundingClientRect()
@@ -37,6 +48,7 @@ const handleScroll = () => {
   activeSection.value = currentSection
 }
 
+// Function to smoothly scroll to a given section
 const scrollToSection = (link) => {
   const section = document.querySelector(link)
   if (section) {
@@ -44,18 +56,27 @@ const scrollToSection = (link) => {
       top: section.offsetTop,
       behavior: 'smooth'
     })
+    // Close the mobile menu after scrolling
     isMenuOpen.value = false
   }
 }
 
+
+// When the component is mounted to the DOM...
 onMounted(() => {
+  // ...start listening for scroll events and call the handleScroll function when they occur.
   window.addEventListener('scroll', handleScroll)
+  
+  // ...get all the <section> elements on the page and store them in the sections array.
   sections.value = Array.from(document.querySelectorAll('section'))
 })
 
+// Before the component is unmounted from the DOM...
 onBeforeUnmount(() => {
+  // ...stop listening for scroll events to prevent memory leaks.
   window.removeEventListener('scroll', handleScroll)
 })
+
 </script>
 
 <template>
