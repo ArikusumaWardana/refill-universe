@@ -12,7 +12,7 @@ import AboutUsImage from '@/assets/about-us/logo-about-us.png'
             </div>
             <div class="about-us-desc text-center md:text-left w-full md:w-auto">
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 uppercase drop-shadow-lg tracking-wide">About Us</h2>
-                <p class="text-gray-700 text-base md:text-lg lg:text-xl text-justify md:text-start">
+                <p class="text-gray-700 text-base md:text-md lg:text-lg text-justify md:text-start">
                     <span class="font-bold">Refill Universe</span> is a community of students from the Morning Informatics 2 class who have a passion for exploring and 
                     discovering food places that offer a filling culinary experience. Places that offer a saxtisfying culinary experience. 
                     This community is not just about sharing recommendations, but also builds togetherness through exciting and rewarding 
