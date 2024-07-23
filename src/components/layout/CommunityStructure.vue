@@ -2,26 +2,36 @@
 import { StructureData } from '@/assets/structure.js'
 import { ref, computed, onMounted } from 'vue'
 
+// Create a reactive variable to track whether the screen is considered 'mobile'
 const isMobile = ref(false)
 
+// Function to check if the screen width is within the 'mobile' range
 const checkIfMobile = () => {
   isMobile.value = window.innerWidth <= 768
 }
 
+// When the component is mounted, check the screen size and add a resize listener to update 'isMobile'
 onMounted(() => {
   checkIfMobile()
   window.addEventListener('resize', checkIfMobile)
 })
 
+// Computed property that reorders the StructureData array if in 'mobile' mode
 const reorderedStructureData = computed(() => {
   if (isMobile.value) {
+    // Create a copy of the StructureData array to avoid modifying the original
     const reordered = [...StructureData.value]
+    // Extract the second item from the array
     const secondItem = reordered.splice(1, 1)[0]
+    // Insert the second item at the beginning of the array
     reordered.unshift(secondItem)
+    // Return the reordered array
     return reordered
   }
+  // If not in 'mobile' mode, return the original StructureData array
   return StructureData.value
 })
+
 </script>
 
 <template>

@@ -2,30 +2,37 @@
 import { ref, onMounted } from 'vue';
 import { loadGallery } from '@/assets/gallery.js';
 
+// Reactive array to store the images currently displayed
 const displayedImages = ref([]);
+// Reactive array to store all images in the gallery
 const gallery = ref([]);
+// Reactive variable to control the visibility of the "Load Less" button
 const showLoadLessButton = ref(false);
 
+// When the component is mounted, load the gallery images and display the first 6
 onMounted(async () => {
   gallery.value = await loadGallery();
   displayedImages.value = gallery.value.slice(0, 6);
 });
 
+// Function to load more images into the displayedImages array
 const loadMoreImages = () => {
   const currentLength = displayedImages.value.length;
   const newImages = gallery.value.slice(currentLength, currentLength + 6);
   displayedImages.value = displayedImages.value.concat(newImages);
 
-  // Tampilkan tombol "Load Less" jika seluruh gambar sudah ditampilkan
+  // Show the "Load Less" button if all images are displayed
   if (displayedImages.value.length === gallery.value.length) {
     showLoadLessButton.value = true;
   }
 };
 
+// Function to reset the displayed images to the first 6 and hide the "Load Less" button
 const loadLessImages = () => {
   displayedImages.value = gallery.value.slice(0, 6);
   showLoadLessButton.value = false;
 };
+
 </script>
 
 <template>

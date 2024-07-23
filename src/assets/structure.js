@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 
+// Import image assets for the structure components
 import Goverment from '@/assets/structure/goverment.png'
 import Supervisor from '@/assets/structure/supervisor.png'
 import Publication from '@/assets/structure/publication.png'
@@ -10,6 +11,7 @@ import Guider from '@/assets/structure/guider.png'
 import Leader from '@/assets/structure/leader.png'
 import Secretariat from '@/assets/structure/secretariat.png'
 
+// Create a reactive data object to hold the structure data
 export const StructureData = ref([
     {
         image: Secretariat, 
