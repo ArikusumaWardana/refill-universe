@@ -30,15 +30,11 @@ const toggleMenu = () => {
 // Function to handle scroll events and update active section
 const handleScroll = () => {
   // Check if user has scrolled past a certain threshold
-  if (window.scrollY > 50) {
-    isScrolled.value = true
-  } else {
-    isScrolled.value = false
-  }
+  isScrolled.value = window.scrollY > 50 ? true : false
 
   // Determine the currently active section based on scroll position
   let currentSection = ''
-  sections.value.forEach(section => {
+  sections.value.forEach((section) => {
     const rect = section.getBoundingClientRect()
     if (rect.top <= 100 && rect.bottom >= 100) {
       currentSection = section.id
@@ -61,12 +57,11 @@ const scrollToSection = (link) => {
   }
 }
 
-
 // When the component is mounted to the DOM...
 onMounted(() => {
   // ...start listening for scroll events and call the handleScroll function when they occur.
   window.addEventListener('scroll', handleScroll)
-  
+
   // ...get all the <section> elements on the page and store them in the sections array.
   sections.value = Array.from(document.querySelectorAll('section'))
 })
@@ -76,16 +71,18 @@ onBeforeUnmount(() => {
   // ...stop listening for scroll events to prevent memory leaks.
   window.removeEventListener('scroll', handleScroll)
 })
-
 </script>
 
 <template>
   <div>
-    <nav :class="['fixed w-full z-50 transition-all', { 'bg-gray-800 shadow-md': isScrolled }]" ref="navbar">
+    <nav
+      :class="['fixed w-full z-50 transition-all', { 'bg-gray-800 shadow-md': isScrolled }]"
+      ref="navbar"
+    >
       <div class="container mx-auto flex justify-between items-center py-4 px-8 lg:px-14">
         <!-- Logo dan Judul Website -->
         <div class="flex items-center space-x-2">
-          <img :src="RefillLogo" alt="Logo" class="h-8 w-8">
+          <img :src="RefillLogo" alt="Logo" class="h-8 w-8" />
           <span class="text-xl font-bold text-white">Refill.Universe</span>
         </div>
 
@@ -95,8 +92,8 @@ onBeforeUnmount(() => {
             v-for="(data, index) in navMenu"
             :key="index"
             :href="data.link"
-            class="menu-item text-white"
-            :class="{ 'active': activeSection === data.link.slice(1) }"
+            class="menu-item text-white font-bold"
+            :class="{ active: activeSection === data.link.slice(1) }"
             @click.prevent="scrollToSection(data.link)"
           >
             {{ data.name }}
@@ -140,10 +137,12 @@ onBeforeUnmount(() => {
   position: absolute;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, #019733, #025F8B);
+  background: linear-gradient(to right, #019733, #025f8b);
   left: 50%;
   bottom: -2px;
-  transition: width 0.1s ease, left 0.1s ease;
+  transition:
+    width 0.1s ease,
+    left 0.1s ease;
 }
 
 .menu-item:hover::after {
